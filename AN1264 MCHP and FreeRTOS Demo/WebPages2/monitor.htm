@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>Microchip Metering Demo</title>
+<link href="meter.css" rel="stylesheet" type="text/css" />
+<script src="mchp.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="shadow-one"><div id="shadow-two"><div id="shadow-three"><div id="shadow-four">
+<div id="page">
+<div style="padding:0 0 5px 5px"><img src="mchp.gif" alt="Microchip" /></div>
+<div id="title"><div class="right">
+Microchip Metering Demo</div></div>
+<div id="menu">
+<a href="/index.htm">Overview</a>
+<a href="/monitor.htm">Monitor</a>
+<a href="/protect/billing.htm">Billing</a>
+<a href="/protect/config.htm">Configuration</a>
+</div>
+<div id="content">
+<h1>Monitor and Control</h1>
+<p>The current Electricity and Gas consumption is viewed on this page. 
+In addition an override facility is provided for each of these
+utilities allowing them to be remotely turned on and off.</p>
+<form action="monitor.htm" method="post" name="monitor">
+<fieldset>
+<div><label>Electricity Usage:</label><div id="electric_units">?</div></div>
+<div><label>Electricity Cost:</label><div id="electric_total">?</div></div>
+<div><label>On/Off</label>
+<input id="button_electric" class="sm" type="checkbox" onclick="newAJAXCommand('switches.cgi?electric=1');" />
+</div>
+<div>&nbsp;</div>
+<div><label>Gas Usage:</label><div id="gas_units">?</div></div>
+<div><label>Gas Cost:</label><div id="gas_total">?</div></div>
+<div><label>On/Off</label>
+<input id="button_gas" class="sm" type="checkbox" onclick="newAJAXCommand('switches.cgi?gas=1');" />
+</div>
+<div>&nbsp;</div>
+<div><label>Temperature:</label><div id="temperature">?</div></div>
+<div><label>Setpoint:</label><div id="setpoint">?</div></div>
+</fieldset>
+</form>
+</div>
+
+<script type="text/javascript">
+<!--
+// parses the xmlResponse from status.xml and updates the controls
+function updateStatus(xmlData) {
+    //check for a timeout
+    if(!xmlData)
+    {
+        // do not update, just display the stale data
+        return;
+    }
+    
+    // update the data values
+    document.getElementById('electric_units').innerHTML=getXMLValue(xmlData, 'electric_units');
+    document.getElementById('electric_total').innerHTML=getXMLValue(xmlData, 'electric_total');
+    if(getXMLValue(xmlData,'electric_onoff')=='true')
+        document.getElementById('button_electric').checked=true;
+    else
+        document.getElementById('button_electric').checked=false;
+    document.getElementById('gas_units').innerHTML=getXMLValue(xmlData, 'gas_units');
+    document.getElementById('gas_total').innerHTML=getXMLValue(xmlData, 'gas_total');
+    if(getXMLValue(xmlData,'gas_onoff')=='true')
+        document.getElementById('button_gas').checked=true;
+    else
+        document.getElementById('button_gas').checked=false;
+    document.getElementById('temperature').innerHTML=getXMLValue(xmlData, 'temperature');
+    document.getElementById('setpoint').innerHTML=getXMLValue(xmlData, 'setpoint');
+}
+setTimeout("newAJAXCommand('status.xml', updateStatus, true)",500);
+//-->
+</script>
+
+<div class="spacer"></div>
+<p></p>
+<div id="footer">       
+<span id="builddate">~builddate~</span><span id="version">~version~</span>
+Copyright &copy; 2009 Microchip Technology, Inc.</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<response>
+<electric_units>~electric_units~</electric_units>
+<electric_total>~electric_total~</electric_total>
+<electric_cost>~electric_cost~</electric_cost>
+<electric_onoff>~electric_onoff~</electric_onoff>
+<gas_units>~gas_units~</gas_units>
+<gas_total>~gas_total~</gas_total>
+<gas_cost>~gas_cost~</gas_cost>
+<gas_onoff>~gas_onoff~</gas_onoff>
+<temperature>~temperature~</temperature>
+<setpoint>~setpoint~</setpoint>
+<pot0>~pot~</pot0>
+</response>
