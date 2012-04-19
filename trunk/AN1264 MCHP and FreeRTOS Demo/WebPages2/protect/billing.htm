@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 STRICT//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>Microchip Metering Demo App</title>
+<link href="../meter.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="shadow-one"><div id="shadow-two"><div id="shadow-three"><div id="shadow-four">
+<div id="page">
+<div style="padding:0 0 5px 5px"><img src="../mchp.gif" alt="Microchip" /></div>
+<div id="title"><div class="right">
+Microchip Metering Demo</div></div>
+<div id="menu">
+<a href="/index.htm">Overview</a>
+<a href="/monitor.htm">Monitor</a>
+<a href="/protect/billing.htm">Billing</a>
+<a href="/protect/config.htm">Configuration</a>
+</div><div id="content">
+<h1>Billing Configuration</h1>
+<p>This page allows the energy costs to be configured. Enter the unit costs below in 1 
+cents units. E.g. $1.47 -> enter 147</p>
+<form method="post" action="/protect/billing.htm" name="billing">
+<fieldset>
+<div><label>Electric Unit Cost:</label>
+<input type="text" name="electric" value="~electric_cost~" /></div>
+<div><label>Gas Unit Cost:</label>
+<input type="text" name="gas" value="~gas_cost~" /></div>
+<div><input type="submit" class="sm" value="Save Config" /></div>
+</fieldset>
+</form>
+</div>
+<div class="spacer"></div>
+<div id="footer">
+<span id="builddate">~builddate~</span><span id="version">~version~</span>Copyright &copy; 2009 Microchip Technology, Inc.</div>
+</body>
+</html>
