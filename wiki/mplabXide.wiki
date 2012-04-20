@@ -1,0 +1,10 @@
+#summary One-sentence summary of this page.
+
+*`avrdude`* with *MPLAB X IDE*
+
+in `project properties` of the project select `Building/Loading`, check `Execute this line after build` and paste this line:
+{{{
+/usr/bin/avrdude -C /home/roma/PIC/mpide/hardware/tools/avrdude.conf \
+                 -c stk500v2 -p ${Device} -D -b 115200 -P /dev/ttyUSB0\
+                 -U flash:w:${ImagePath}:i
+}}}
