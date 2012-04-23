@@ -10,3 +10,4 @@ in `project properties` of the project select `Building/Loading`, check `Execute
                  -c stk500v2 -p ${Device} -D -b 115200\
                  -P /dev/ttyUSB0 -U flash:w:${ImagePath}:i
 }}}
+note avrdude gives an error about unknown `${Device}`, either change `-p ${Device}` to `-p pic32` or tweak `avrdude.conf`
