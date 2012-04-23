@@ -1,6 +1,7 @@
 #summary MPLAB X IDE related notes
 
-*`avrdude`* with *MPLAB X IDE*
+  * MPLAB X [http://ww1.microchip.com/downloads/mplab/X/ downloads]
+  * *`avrdude`* with *MPLAB X IDE*
 
 in `project properties` of the project select `Building/Loading`, check `Execute this line after build` and paste this line:
 {{{
